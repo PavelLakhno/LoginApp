@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,8 +46,6 @@ class LoginViewController: UIViewController {
         if segue.source is WelcomeViewController {
             userNameTextField.text = ""
             passwordTextField.text = ""
-        } else {
-            return
         }
     }
 }
@@ -56,10 +54,9 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func showAlert(withTitle title: String, andMessage message: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert)
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
         let okAlert = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAlert)
         present(alert, animated: true)

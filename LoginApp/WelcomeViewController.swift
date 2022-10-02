@@ -14,14 +14,14 @@ final class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeGradient()
-        self.welcomeLabel.text = welcomeText
+        welcomeLabel.text = welcomeText
     }
     
     private func makeGradient() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
+        gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.systemRed.cgColor, UIColor.systemBlue.cgColor]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
 }
