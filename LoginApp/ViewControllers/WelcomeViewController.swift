@@ -7,23 +7,24 @@
 
 import UIKit
 
-final class WelcomeViewController: UIViewController {
+class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     
-    var userName = ""
-    
+    var user: User!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeGradient()
-        welcomeLabel.text = "Welcome, \(userName)"
+        welcomeLabel.text = "Welcome, \(user.person.firstName) \(user.person.lastName)"
+        view.makeGradient()
     }
-    
-    private func makeGradient() {
+}
+
+extension UIView {
+    func makeGradient() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
+        gradientLayer.frame = bounds
         gradientLayer.colors = [UIColor.systemRed.cgColor, UIColor.systemBlue.cgColor]
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        layer.insertSublayer(gradientLayer, at: 0)
     }
-    
 }
