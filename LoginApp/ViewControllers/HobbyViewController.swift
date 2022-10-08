@@ -7,16 +7,17 @@
 
 import UIKit
 
-class HobbyViewController: UIViewController {
+final class HobbyViewController: UIViewController {
 
     @IBOutlet weak var referenceLabel: UILabel!
     
-    var reference = ""
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.makeGradient()
-        referenceLabel.text = reference
+        referenceLabel.text = user.person.bio
+        title = "\(user.person.fullName) Bio"
     }
 
 }

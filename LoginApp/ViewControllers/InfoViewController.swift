@@ -9,7 +9,12 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView! {
+        didSet {
+            photoImageView.layer.cornerRadius = photoImageView.frame.width/2
+        }
+    }
+    
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
@@ -20,14 +25,14 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoImageView.layer.cornerRadius = photoImageView.frame.width/2
+        
         view.makeGradient()
         initUser(user.person)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let hobbyVC = segue.destination as? HobbyViewController else { return }
-        hobbyVC.reference = user.person.reference
+        hobbyVC.user = user
     }
     
     private func initUser(_ person: Person) {
